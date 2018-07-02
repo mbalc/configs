@@ -2,8 +2,8 @@
 export TERM="screen-256color"
 
 POWERLEVEL9K_COLOR_SCHEME='light'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery vcs dir rbenv background_jobs newline status root_indicator)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context vcs dir rbenv background_jobs newline status root_indicator)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time battery)
 POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
 POWERLEVEL9K_BATTERY_VERBOSE=false
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
