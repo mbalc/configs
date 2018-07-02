@@ -1,0 +1,5 @@
+cp ./config/.zshrc	~
+cp ./config/.tmux.conf	~
+cp ./config/init.vim	~/.vimrc
+cp ./config/init.vim	~/.config/nvim/
+

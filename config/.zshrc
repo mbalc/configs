@@ -119,7 +119,7 @@ bindkey -M emacs '^[[3;5~' kill-word
 
 export EDITOR='vim'
 
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export PATH
