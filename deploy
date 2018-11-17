@@ -5,3 +5,5 @@ cp ./config/.tmux.conf	~
 cp ./config/init.vim	~/.vimrc
 cp ./config/init.vim	~/.config/nvim/
 
+cp ./config/.ideavimrc	~
+
