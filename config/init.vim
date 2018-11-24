@@ -1,6 +1,7 @@
 call plug#begin()
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set number
