@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
+MAINPATH=$(dirname "$0")
 
 mkdir -p ~/.config/nvim
 
-cp ./config/.zshrc	~
-cp ./config/.irbrc	~
-cp ./config/.tmux.conf	~
-cp ./config/init.vim	~/.vimrc
-cp ./config/init.vim	~/.config/nvim/
+cp -v $MAINPATH/config/.zshrc	~
+cp -v $MAINPATH/config/.irbrc	~
+cp -v $MAINPATH/config/.tmux.conf	~
+cp -v $MAINPATH/config/init.vim	~/.vimrc
+cp -v $MAINPATH/config/init.vim	~/.config/nvim/
 
-cp ./config/.ideavimrc	~
+cp -v $MAINPATH/config/.ideavimrc	~
 
