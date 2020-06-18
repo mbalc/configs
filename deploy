@@ -3,6 +3,7 @@
 mkdir -p ~/.config/nvim
 
 cp ./config/.zshrc	~
+cp ./config/.irbrc	~
 cp ./config/.tmux.conf	~
 cp ./config/init.vim	~/.vimrc
 cp ./config/init.vim	~/.config/nvim/

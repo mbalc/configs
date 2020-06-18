@@ -124,5 +124,9 @@ export EDITOR='vim'
 PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 export PATH
 
+source ~/.pathrc
+
 alias rmr='rm -r'
 alias vim='nvim'
+
+eval $(ssh-agent) && find ~/.ssh/ -type f -exec grep -l "PRIVATE" {} \; | xargs ssh-add &> /dev/null
