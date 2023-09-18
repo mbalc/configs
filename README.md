@@ -5,7 +5,7 @@ These are my :boom:__*official*__:boom: config files for tools I use on a daily 
 This simple repo: 
 
 - [x] helps me synchronize any changes I make between all my working environments
-- [x] simplifies deploying stuff I am used to to any new environment
+- [x] simplifies setting up stuff I am used to on new Linux environments
   - it seems I kinda often need to do so recently... :octopus:
 
 
