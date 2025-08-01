@@ -1,14 +1,49 @@
 #!/usr/bin/env bash
-MAINPATH=$(dirname "$0")
+set -e  # Exit immediately if a command exits with a non-zero status
 
-mkdir -p ~/.config/nvim
 
-ln -s $MAINPATH/config/.zshrc		~
-ln -s $MAINPATH/config/.irbrc		~
-ln -s $MAINPATH/config/.tmux.conf	~
-ln -s $MAINPATH/config/init.vim		~/.vimrc
-ln -s $MAINPATH/config/init.vim		~/.config/nvim/
-ln -s $MAINPATH/config/config.fish	~/.config/fish/
+MAINPATH=$(cd -- "$(dirname "$0")" && pwd)  # Get absolute path of script location
 
-ln -s $MAINPATH/config/.ideavimrc	~
+CFGS_PATH=~/.dotfiles
+DEPS_PATH=$CFGS_PATH/deps
 
+
+# Create necessary directories
+echo "Creating necessary directories..."
+mkdir -pv ~/.config/fish
+mkdir -pv ~/.vim/autoload
+mkdir -pv ~/.config/nvim/autoload
+
+# Create symlinks
+echo "Creating symlinks..."
+ln -sfv "$MAINPATH" "$CFGS_PATH"
+
+ln -sfv "$MAINPATH/config/.zshrc" ~/
+ln -sfv "$MAINPATH/config/.irbrc" ~/
+ln -sfv "$MAINPATH/config/.tmux.conf" ~/
+ln -sfv "$MAINPATH/config/init.vim" ~/.vimrc
+ln -sfv "$MAINPATH/config/init.vim" ~/.config/nvim/
+ln -sfv "$MAINPATH/config/config.fish" ~/.config/fish/
+ln -sfv "$MAINPATH/config/.ideavimrc" ~/
+
+
+echo "Installing dependencies..."
+
+# Setup complete-alias
+if [ -d $DEPS_PATH/complete_alias ]; then
+    echo "Updating complete-alias..."
+    git -C $DEPS_PATH/complete_alias pull --quiet
+else
+    echo "Cloning complete-alias..."
+    git clone --quiet git@github.com:cykerway/complete-alias.git $DEPS_PATH/complete_alias
+fi
+
+
+# Setup vim-plug
+echo "Setting up vim-plug..."
+curl -fLo $DEPS_PATH/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -sfv $DEPS_PATH/plug.vim ~/.vim/autoload/plug.vim
+ln -sfv $DEPS_PATH/plug.vim ~/.config/nvim/autoload/plug.vim
+
+echo "Setup complete!"
