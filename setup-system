@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e  # Exit immediately if a command exits with a non-zero status
+
+# System-wide configs that need root; `setup` stays root-free.
+# Files are copied, not symlinked: udev may read its rules before /home is mounted.
+
+MAINPATH=$(cd -- "$(dirname "$0")" && pwd)  # Get absolute path of script location
+
+echo "Installing udev rules..."
+sudo install -v -m 644 "$MAINPATH"/config/udev/*.rules /etc/udev/rules.d/
+sudo udevadm control --reload
+sudo udevadm trigger --subsystem-match=input --action=add
+
+echo "System setup complete!"
