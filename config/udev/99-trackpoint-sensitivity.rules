@@ -1,4 +1,4 @@
 # Raise the TrackPoint's hardware sensitivity (kernel default 128, max 255),
 # so light pressure already moves the cursor and full pressure moves it far.
 # The sensitivity knob lives on the PS/2 pass-through port that is the parent of the input device.
-ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="*TrackPoint*", ATTR{device/sensitivity}="200"
+ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="*TrackPoint*", ATTR{device/sensitivity}="242"
